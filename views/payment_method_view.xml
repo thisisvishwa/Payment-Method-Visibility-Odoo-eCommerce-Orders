@@ -1,0 +1,57 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree view for payment method -->
+        <record id="view_payment_method_tree" model="ir.ui.view">
+            <field name="name">payment.method.tree</field>
+            <field name="model">payment.method</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Method">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="associated_orders"/>
+                    <!-- Add other relevant fields here -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view for payment method -->
+        <record id="view_payment_method_form" model="ir.ui.view">
+            <field name="name">payment.method.form</field>
+            <field name="model">payment.method</field>
+            <field name="arch" type="xml">
+                <form string="Payment Method">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="associated_orders"/>
+                            <!-- Add other relevant fields here -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to open the list of payment methods -->
+        <record id="action_payment_methods" model="ir.actions.act_window">
+            <field name="name">Payment Methods</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">payment.method</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Payment Method
+                </p>
+                <p>
+                    Here you can manage your payment methods.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu item for payment methods -->
+        <menuitem id="menu_payment_methods" name="Payment Methods" action="action_payment_methods"/>
+    </data>
+</odoo>
+```
